@@ -1,0 +1,12 @@
+name: 'Message digest test module'
+description: 'Functionality to assist Message digest testing.'
+type: module
+core: 8.x
+dependencies:
+  - message_digest:message_digest
+package: Testing
+
+# Information added by Drupal.org packaging script on 2021-08-18
+version: '8.x-1.1'
+project: 'message_digest'
+datestamp: 1629330334

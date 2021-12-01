@@ -1,0 +1,17 @@
+diff --git a/src/FlagService.php b/src/FlagService.php
+index 2f9c015..f5a98e6 100644
+--- a/src/FlagService.php
++++ b/src/FlagService.php
+@@ -220,8 +220,11 @@ class FlagService implements FlagServiceInterface {
+       $query->condition($global_or_user);
+       if ($account->isAnonymous()) {
+         if (empty($session_id)) {
+-          throw new \LogicException('An anonymous user must be identified by session ID.');
++          $session_id = Crypt::randomBytesBase64();
++          //throw new \LogicException('An anonymous user must be identified by session ID.');
+         }
++         $this->anonymousSessionId = $session_id;
++         return $this->anonymousSessionId;
+ 
+         $query->condition('session_id', $session_id);
+       }
